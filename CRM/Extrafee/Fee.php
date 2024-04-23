@@ -68,7 +68,6 @@ class CRM_Extrafee_Fee extends CRM_Contribute_Form_ContributionBase {
       $selectedOnContributionPage = $form->_params['extra_fee_add'] ?? FALSE;
       $selectedOnEventPage = $params[0]['extra_fee_add'] ?? FALSE;
       if (!$selectedOnContributionPage && !$selectedOnEventPage) {
-        \Civi::log()->debug("Bailing");
         return;
       }
     }
