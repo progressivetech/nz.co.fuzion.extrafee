@@ -82,6 +82,8 @@ class CRM_Extrafee_Fee extends CRM_Contribute_Form_ContributionBase {
     ])) {
       if (!empty($form->_params['amount'])) {
         $extrafee_amount = $form->_params['amount'] * $percent/100 + $processingFee;
+        $extrafee_amount = round(CRM_Utils_Rule::cleanMoney($extrafee_amount), 2);
+
         $lineItems = $form->getOrder()->getLineItems();
         if (!empty($lineItems)) {
           $financialTypeId = reset($lineItems)['financial_type_id'] ?? 1;
